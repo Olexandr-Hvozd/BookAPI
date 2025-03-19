@@ -1,0 +1,16 @@
+*.pyc
+*.pyo
+*.pyd
+
+venv/
+bkenv/
+
+db.sqlite3
+*.sqlite3
+
+.env
+
+.vscode/
+.idea/
+
+media/

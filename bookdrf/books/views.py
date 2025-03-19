@@ -36,7 +36,6 @@ class BookViewSet(viewsets.ModelViewSet):
         book_serializers = BookSerializer(author, many=True)
         return Response(book_serializers.data)
     
-    
     @action(methods=['get'], detail=False, url_path='search-by-title')
     def search_by_title(self, request):
         """
@@ -84,12 +83,12 @@ class BookViewSet(viewsets.ModelViewSet):
         cat = request.query_params.get('cat', None)
 
         if not cat:
-            return Response({'details': "name parameter is required"})
+            return Response({'details': "Name cat parameter is required"})
         
         books = Books.objects.filter(cat=cat)
 
         if not books:
-            return Response({'detail': 'category not found with this name'})
+            return Response({'detail': 'Category not found with this name'})
         
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
